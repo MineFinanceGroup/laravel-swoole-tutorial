@@ -36,7 +36,7 @@ extension=swoole.so
 sudo service php7.x-fpm restart 
 ```
 
-В случае наличия nginx:
+3. Перезапустить nginx если используется:
 ```
 sudo service nginx restart
 ```
