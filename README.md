@@ -14,7 +14,7 @@
 ### Установка php расширения на Ubuntu
 
 ```
-sudo apt-get install php7.4-dev
+sudo apt-get install php7.x-dev
 sudo pecl install swoole
 php -i | grep php.ini
 ```
@@ -28,8 +28,8 @@ extension=swoole.so
 *В случае если у вас установлен xdebug, требуется его отключить во избежание конфликтов.*
 
 1. Переименовать файл 20-xdebug.ini в 20-xdebug.ini.bak в директориях:
-- /etc/php/7.4/cli/config.d/ 
-- /etc/php/7.4/fpm/config.d/
+- /etc/php/7.x/cli/config.d/ 
+- /etc/php/7.x/fpm/config.d/
 
 2. Перезапустить php:
 ```
