@@ -42,7 +42,7 @@ sudo service nginx restart
 ```
 
 
-#### Установка и настройка пакета "swooletw/laravel-swoole" в Laravel проект
+### Установка и настройка пакета "swooletw/laravel-swoole" в Laravel проект
 
 ```
 composer require swooletw/laravel-swoole
