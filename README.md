@@ -5,14 +5,12 @@
 # Описание:
 Инструкция по установке и настройке Swoole
 
-[Официальная документация]
-(https://www.swoole.co.uk/docs/)
+[Официальная документация](https://www.swoole.co.uk/docs/)
 
 
 # Установка и настройка
 
-[Инструкция по установке]
-(https://github.com/swooletw/laravel-swoole/wiki/4.-Installation)
+[Инструкция по установке](https://github.com/swooletw/laravel-swoole/wiki/4.-Installation)
 
 ## Установка php расширения на Ubuntu
 
