@@ -101,7 +101,7 @@ SWOOLE_HTTP_TASK_WORKER_NUM=1
 2. Добавить в routes/api.php тестовый route
 ```
 Route::get('swoole-test', function (){
-    $timeStarted = Carbon::now();
+    $timeStarted = \Carbon\Carbon::now();
     \Swoole\Coroutine\System::sleep(3);
 
     return response()->json([
