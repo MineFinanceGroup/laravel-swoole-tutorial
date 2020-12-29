@@ -99,7 +99,7 @@ SWOOLE_HTTP_TASK_WORKER_NUM=1
 ```
 
 2. Добавить в routes/api.php тестовый route
-
+```
 Route::get('swoole-test', function (){
     $timeStarted = Carbon::now();
     \Swoole\Coroutine\System::sleep(3);
@@ -109,10 +109,11 @@ Route::get('swoole-test', function (){
 	\Carbon\Carbon::now()
     ]);    
 });
+```
 
 3. [Перезапустить swoole](https://github.com/MineFinanceGroup/swoole-tutorial/blob/master/README.md#%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-%D0%B8-%D0%BF%D0%B5%D1%80%D0%B5%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-swoole)
 
-4. Сделать два почти одновременных запроса через [postman](https://www.postman.com/) на /api/swoole-test 
+4. Сделать два почти одновременных запроса через [Postman](https://www.postman.com/) на /api/swoole-test 
 При корректной работе асинхронности, результаты должны почти совпадать по времени запуска и завершения.
 
 
