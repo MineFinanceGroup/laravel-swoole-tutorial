@@ -20,14 +20,18 @@ sudo pecl install swoole
 
 php -i | grep php.ini
 
+
 Добавить в php.ini строку
 extension=swoole.so
 
 Если в системе установлен xdebug, отключаем.
 
-Отключение xdebug: В папке /etc/php/7.4/cli/config.d/ переименовать файл 20-xdebug.ini в 20-xdebug.ini.bak
+## Отключение xdebug
+
+В папке /etc/php/7.4/cli/config.d/ переименовать файл 20-xdebug.ini в 20-xdebug.ini.bak
 
 Тоже самое в папке /etc/php/7.4/fpm/config.d/
+
 
 sudo service php7.x-fpm restart && sudo service nginx restart
 
@@ -77,13 +81,16 @@ php artisan vendor:publish --tag=laravel-swoole
 
 php artisan swoole:http restart
 
+
 После внесения любых изменений в код, перезапустить команду 
 
 php artisan swoole:http restart
 
+
 Ссылка на поднятый домен
 
 http://localhost:1215
+
 
 Пример успешного запуска
 
