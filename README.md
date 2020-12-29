@@ -5,9 +5,8 @@
 
 [**ВНИМАНИЕ: после каждого внесения изменений в код требуется перезапускать swoole**](https://github.com/MineFinanceGroup/swoole-tutorial/blob/master/README.md#%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-%D0%B8-%D0%BF%D0%B5%D1%80%D0%B5%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-swoole)
 
-[Официальная документация](https://www.swoole.co.uk/docs/)
-
-[Официальная инструкция по установке laravel-swoole](https://github.com/swooletw/laravel-swoole/wiki/4.-Installation)
+- [Официальная документация](https://www.swoole.co.uk/docs/)
+- [Официальная инструкция по установке laravel-swoole](https://github.com/swooletw/laravel-swoole/wiki/4.-Installation)
 
 
 ## Установка и настройка
