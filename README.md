@@ -31,11 +31,15 @@ extension=swoole.so
 - /etc/php/7.4/cli/config.d/ 
 - /etc/php/7.4/fpm/config.d/
 
-2. Перезапустить php и вебсервер:
+2. Перезапустить php:
+```
 sudo service php7.x-fpm restart 
+```
 
 В случае наличия nginx:
+```
 sudo service nginx restart
+```
 
 
 #### Установка и настройка пакета "swooletw/laravel-swoole" в Laravel проект
