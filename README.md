@@ -24,7 +24,9 @@ php -i | grep php.ini
 extension=swoole.so
 
 Если в системе установлен xdebug, отключаем.
+
 Отключение xdebug: В папке /etc/php/7.4/cli/config.d/ переименовать файл 20-xdebug.ini в 20-xdebug.ini.bak
+
 Тоже самое в папке /etc/php/7.4/fpm/config.d/
 
 sudo service php7.x-fpm restart && sudo service nginx restart
@@ -38,9 +40,13 @@ composer require swooletw/laravel-swoole
 1. В массив providers в файле config/app.php добавить:
 
 [
+
     'providers' => [
+
         SwooleTW\Http\LaravelServiceProvider::class,
+
     ],
+
 ]
 
 2. Создание файла конфигурации swoole:
@@ -72,15 +78,19 @@ php artisan vendor:publish --tag=laravel-swoole
 php artisan swoole:http restart
 
 После внесения любых изменений в код, перезапустить команду 
+
 php artisan swoole:http restart
 
 Ссылка на поднятый домен
+
 http://localhost:1215
 
 Пример успешного запуска
 
 Starting swoole http server...
+
 Swoole http server started: <http://127.0.0.1:1215>
+
 (You can run this command to ensure the swoole_http_server process is running: ps aux|grep "swoole")
 
 ## Проверка асинхронности
@@ -106,16 +116,9 @@ class SwooleController extends Controller
     }
 }
 
+
 Открыть две одинаковые вкладки с тестовым эндпоинтом и запустить отправку запроса в каждой из них одновременно.
+
 Полученные значения времени должны отличаться на обеих вкладках +- 1 секунда.
 
-# Использование
-## Пример работы с MySQL
-...
-
-## Пример работы с Redis
-...
-
-## Пример работы с HTTP Client
-...
 
