@@ -36,11 +36,16 @@ extension=swoole.so
 sudo service php7.x-fpm restart 
 ```
 
-3. Перезапустить nginx если используется:
+3. Перезапустить веб-сервер:
+
+- Если используеться nginx
 ```
 sudo service nginx restart
 ```
-
+- Если используеться apache2
+```
+sudo service apache2 restart
+```
 
 ### Установка и настройка пакета "swooletw/laravel-swoole" в Laravel проект
 
