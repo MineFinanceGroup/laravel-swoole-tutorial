@@ -105,12 +105,12 @@ SWOOLE_HTTP_TASK_WORKER_NUM=1
 2. Добавить в routes/api.php тестовый route  
 ```php  
 Route::get('swoole-test', function (){  
-	$timeStarted = \Carbon\Carbon::now(); 
-	\Swoole\Coroutine\System::sleep(3);  
-	return response()->json([
-		'start' => $timeStarted, 
-		'end' => \Carbon\Carbon::now()
-	]); 
+    $timeStarted = \Carbon\Carbon::now(); 
+    \Swoole\Coroutine\System::sleep(3);  
+    return response()->json([
+        'start' => $timeStarted, 
+        'end' => \Carbon\Carbon::now()
+    ]); 
 });  
 ```
   
@@ -123,9 +123,9 @@ Route::get('swoole-test', function (){
 При работе со swoole необходимо использовать асинхронные решения для работы со сторонними инструментами: БД, Redis, HTTP запросы и другими.
 
 В папке app/Swoole содержатся реализации асинхронных классов для работы  со сторонними инструментами:
-- [БД (MySQL)  - Services/PdoCoroutine.php]()
-- [Redis - Services/RedisCoroutine.php]()
-- [HTTP запросы - Traits/FetcherTrait.php]()
+- [БД (MySQL)  - Services/PdoCoroutine.php](https://github.com/MineFinanceGroup/swoole-tutorial#%D0%B1%D0%B4-mysql)
+- [Redis - Services/RedisCoroutine.php](https://github.com/MineFinanceGroup/swoole-tutorial#redis-%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%B2%D0%B0%D0%B5%D1%82-%D0%B2%D1%81%D0%B5-redis-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8)
+- [HTTP запросы - Traits/FetcherTrait.php](https://github.com/MineFinanceGroup/swoole-tutorial#http-%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81%D1%8B)
 
 ### Примеры использования:
 #### БД (MySQL) 
@@ -136,44 +136,29 @@ $pdoCoroutine = new PdoCoroutine();
 
 //Select: returned rows array
 $sqlQuery = 'SELECT id, name, status FROM tableName WHERE status = :status';
-$rows = $pdoCoroutine->select(
-	$sqlQuery, 
-	['status' => 'active']
-); 
+$rows = $pdoCoroutine->select($sqlQuery, ['status' => 'active']); 
 
 //Select one row: returned array with row OR null
 $sqlQuery = 'SELECT id, name, status FROM tableName WHERE id = :id LIMIT 1';
-$row = $pdoCoroutine->selectRow(
-	$sqlQuery, 
-	['id' => 1]
-); 
+$row = $pdoCoroutine->selectRow($sqlQuery, ['id' => 1]); 
 
 //Insert: returned last insert id
 $sqlQuery = 'INSERT INTO tableName (name, status, created_at, updated_at) VALUES (:name, :status, NOW(), NOW())';
-$insertId = $pdoCoroutine->insert(
-	$sqlQuery, 
-	[
-		'name' => 'Test',
-		'status' => 'new',
-	]
-);
+$insertId = $pdoCoroutine->insert($sqlQuery, [
+    'name' => 'Test',
+    'status' => 'new',
+]);
 
 //Update: returned number of rows that has been updated
 $sqlQuery = 'UPDATE tableName SET status = :new_status, updated_at = NOW() WHERE status = :old_status';
-$numberOfRowsUpdated = $pdoCoroutine->update(
-	$sqlQuery, 
-	[
-		'old_status' => 'pending',
-		'new_status' => 'closed',
-	]
-);
+$numberOfRowsUpdated = $pdoCoroutine->update($sqlQuery, [
+    'old_status' => 'pending',
+    'new_status' => 'closed',
+]);
 
 //Delete: returned number of rows that has been deleted
 $sqlQuery = 'DELETE FROM tableName WHERE id = :id LIMIT 1';
-$numberOfRowsDeleted = $pdoCoroutine->delete(
-	$sqlQuery, 
-	['id' => 1]
-);     
+$numberOfRowsDeleted = $pdoCoroutine->delete($sqlQuery, ['id' => 1]);     
 ```
 #### Redis (поддерживает все Redis функции)
 ```php
@@ -200,30 +185,30 @@ use App\Traits\Swoole\FetcherTrait;
   
 class TestApiClient  
 {  
-	use FetcherTrait;  
+    use FetcherTrait;  
+    
+    private $url = 'https://api.test.com';  
   
-	private $url = 'https://api.test.com';  
+    private $token;  
   
-	private $token;  
-  
-	public function __construct(string $token)  
-	{  
-		$this->token = $token;  
-	}
-	   
-	public function request(string $endpoint, ?array $data = [], string $method = 'GET'): object  
-	{  
-		try {  
-			return $this->fetch(  
-				"{$this->url}/{$endpoint}",  
-			    $data,  
-		        $method,  
-			    ['Authorization' => "Bearer {$this->token}"]  
-			);  
-		} catch (Exception $e) {  
-			throw new Exception("Http client error: {$e->getMessage()}");  
-		}  
-	}
+    public function __construct(string $token)  
+    {  
+        $this->token = $token;  
+    }
+    
+    public function request(string $endpoint, ?array $data = [], string $method = 'GET'): object  
+    {  
+        try {  
+	    return $this->fetch(  
+	        "{$this->url}/{$endpoint}",  
+		$data,  
+		$method,  
+		['Authorization' => "Bearer {$this->token}"]  
+	    );  
+	} catch (Exception $e) {  
+	    throw new Exception("Http client error: {$e->getMessage()}");  
+	}  
+    }
 }  
   
 $testApiClient = new TestApiClient('TOKEN');  
@@ -231,11 +216,11 @@ $testApiClient = new TestApiClient('TOKEN');
 $items = $testApiClient->request('items');  
   
 $newItems = $testApiClient->request(  
-	'items',  
-	[
+    'items',  
+    [
         'name' => 'Test',  
-		'status' => 'new',  
-	],  
-	'POST'  
+	'status' => 'new',  
+    ],  
+    'POST'  
 );
 ```
