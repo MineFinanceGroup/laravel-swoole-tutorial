@@ -181,7 +181,7 @@ $redisCoroutine->decrBy('key5', 10);
 #### HTTP запросы
 
 ```php
-use App\Traits\Swoole\FetcherTrait;  
+use App\Swoole\Traits\FetcherTrait;  
   
 class TestApiClient  
 {  

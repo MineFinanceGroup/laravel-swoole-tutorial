@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Swoole;
+namespace App\Swoole\Traits;
 
 use Swoole\Coroutine\Http\Client;
 
