@@ -122,7 +122,7 @@ Route::get('swoole-test', function (){
 ## Использование  
 При работе со swoole необходимо использовать асинхронные решения для работы со сторонними инструментами: БД, Redis, HTTP запросы и другими.
 
-В папке app/Swoole содержатся реализации асинхронных классов для работы  со сторонними инструментами:
+В данном репозитории в app/Swoole содержатся реализации асинхронных классов для работы  со сторонними инструментами:
 - [БД (MySQL)  - Services/PdoCoroutine.php](https://github.com/MineFinanceGroup/swoole-tutorial#%D0%B1%D0%B4-mysql)
 - [Redis - Services/RedisCoroutine.php](https://github.com/MineFinanceGroup/swoole-tutorial#redis-%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%B2%D0%B0%D0%B5%D1%82-%D0%B2%D1%81%D0%B5-redis-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8)
 - [HTTP запросы - Traits/FetcherTrait.php](https://github.com/MineFinanceGroup/swoole-tutorial#http-%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81%D1%8B)
