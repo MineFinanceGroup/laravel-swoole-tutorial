@@ -25,26 +25,8 @@ extension=swoole.so
   
 #### Отключение xdebug в случае его наличия  
 *В случае если у вас установлен xdebug, требуется его отключить во избежание конфликтов.*  
-  
-1. Переименовать файл 20-xdebug.ini в 20-xdebug.ini.bak в директориях:  
-- /etc/php/7.x/cli/config.d/   
-- /etc/php/7.x/fpm/config.d/  
-  
-2. Перезапустить php:  
-```bash  
-sudo service php7.x-fpm restart 
-```  
-  
-3. Перезапустить веб-сервер:  
-  
-- Если используется nginx  
-```bash  
-sudo service nginx restart  
-```  
-- Если используется apache2  
-```bash  
-sudo service apache2 restart  
-```  
+ 
+Переименовать файл 20-xdebug.ini в 20-xdebug.ini.bak в директории /etc/php/7.x/cli/config.d/   
   
 ### Установка и настройка пакета "swooletw/laravel-swoole" в Laravel проект  
   
