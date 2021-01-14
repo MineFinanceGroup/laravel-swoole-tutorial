@@ -73,13 +73,14 @@ SWOOLE_HOT_RELOAD_ENABLE=false
 SWOOLE_HOT_RELOAD_RECURSIVELY=false  
 SWOOLE_HOT_RELOAD_LOG=true  
 SWOOLE_OB_OUTPUT=false  
+SWOOLE_HTTP_PID_FILE='/tmp/swoole-{project-name}.pid'
 ```  
   
 **Некоторые примечания:**  
 - SWOOLE_HANDLE_STATIC — Обрабатывать ли статические файлы через swoole  
 - SWOOLE_HTTP_ACCESS_LOG — Доступ к логам через HTTP  
 - SWOOLE_MAX_REQUEST — Максимальное количество запросов для перезагрузки worker'a. Для локальной разработки установить 1.  
-  
+- SWOOLE_MAX_REQUEST — Необходимо что бы файл был уникальным
   
 ### Запуск и перезапуск swoole  
   
