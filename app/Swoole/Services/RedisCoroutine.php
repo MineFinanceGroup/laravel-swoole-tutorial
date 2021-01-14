@@ -18,6 +18,8 @@ class RedisCoroutine
             config('database.redis.default.port')
         );
 
+        $this->redis->auth(config('database.redis.default.password'));
+
         if (!$this->redis->connected) {
             throw new ConnectionException($this->redis->errMsg, $this->redis->errCode);
         }
