@@ -62,7 +62,7 @@ SWOOLE_HTTP_PID_FILE='/tmp/swoole-{project-name}.pid'
 - SWOOLE_HANDLE_STATIC — Обрабатывать ли статические файлы через swoole  
 - SWOOLE_HTTP_ACCESS_LOG — Доступ к логам через HTTP  
 - SWOOLE_MAX_REQUEST — Максимальное количество запросов для перезагрузки worker'a. Для локальной разработки установить 1.  
-- SWOOLE_MAX_REQUEST — Необходимо что бы файл был уникальным
+- SWOOLE_HTTP_PID_FILE — Необходимо что бы файл был уникальным
   
 ### Запуск и перезапуск swoole  
   
